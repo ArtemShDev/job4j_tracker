@@ -26,5 +26,6 @@ public class Triangle {
             rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
         return rsl;
+        //
     }
 }
