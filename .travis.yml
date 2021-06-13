@@ -18,7 +18,3 @@ notifications:
       - dev.art.balt@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
-
-env:
-  global:
-    - CODECOV_TOKEN="4ba0aa09-572a-4b44-b7a5-c634a49e17f5"
