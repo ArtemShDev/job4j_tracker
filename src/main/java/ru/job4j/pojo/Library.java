@@ -11,18 +11,18 @@ public class Library {
         books[1] = book2;
         books[2] = book3;
         books[3] = book4;
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getTitle() + "; pages : " + books[i].getPage());
+        for (Book iBook : books) {
+            System.out.println(iBook.getTitle() + "; pages : " + iBook.getPage());
         }
         Book tmp = books[0];
         books[0] = books[3];
         books[3] = tmp;
-        for (int i = 0; i < books.length; i++) {
-            System.out.println(books[i].getTitle() + "; pages : " + books[i].getPage());
+        for (Book iBook : books) {
+            System.out.println(iBook.getTitle() + "; pages : " + iBook.getPage());
         }
-        for (int i = 0; i < books.length; i++) {
-            if (books[i].getTitle().equals("Clean code")) {
-                System.out.println(books[i].getTitle() + "; pages : " + books[i].getPage());
+        for (Book iBook : books) {
+            if ("Clean code".equals(iBook.getTitle())) {
+                System.out.println(iBook.getTitle() + "; pages : " + iBook.getPage());
             }
         }
     }
