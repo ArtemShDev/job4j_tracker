@@ -30,7 +30,7 @@ public class Tracker {
         int size = 0;
         for (int index = 0; index < items.length; index++) {
             Item item = items[index];
-            if (key.equals(item.getName())) {
+            if (item != null && key.equals(item.getName())) {
                 namesWithoutNull[size] = item;
                 size++;
             }
