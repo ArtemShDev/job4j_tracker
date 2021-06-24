@@ -4,15 +4,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class StartUI {
-    public static void main(String[] args) {
-        /*Item item = new Item("Test");
-        LocalDateTime dateTime = item.getDateTime();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        System.out.println(dateTime.format(formatter));*/
-        Scanner scanner = new Scanner(System.in);
-        Tracker tracker = new Tracker();
-        new StartUI().init(scanner, tracker);
-    }
 
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
@@ -28,8 +19,12 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("=== Show all items ====");
                 Item[] items = tracker.findAll();
-                for (Item item : items) {
-                    System.out.println(item);
+                if (items.length > 0) {
+                    for (Item item : items) {
+                        System.out.println(item);
+                    }
+                } else {
+                    System.out.println("Ни одной заявки не найдено");
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ====");
@@ -90,6 +85,12 @@ public class StartUI {
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Program");
         System.out.println("Select:");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Tracker tracker = new Tracker();
+        new StartUI().init(scanner, tracker);
     }
 
 }
