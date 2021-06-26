@@ -4,12 +4,12 @@ public class Bus implements Transport{
 
     @Override
     public void drive() {
-
+        boolean canDrive = false;
     }
 
     @Override
     public void passengers(int passengers) {
-
+        int chairs = passengers;
     }
 
     @Override
