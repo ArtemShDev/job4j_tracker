@@ -10,12 +10,10 @@ public class ShowAllAction implements UserAction{
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
-        //boolean rsl = false;
         if (items.length > 0) {
             for (Item item : items) {
                 System.out.println(item);
             }
-            //rsl = true;
         } else {
             System.out.println("Хранилище еще не содержит заявок");
         }

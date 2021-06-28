@@ -12,10 +12,8 @@ public class EditAction implements UserAction{
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        //boolean rsl = false;
         if (tracker.replace(id, item)) {
             System.out.println("Заявка изменена успешно.");
-            //rsl = true;
         } else {
             System.out.println("Ошибка замены заявки.");
         }
