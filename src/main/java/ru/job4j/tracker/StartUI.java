@@ -75,21 +75,6 @@ public class StartUI {
             int select = input.askInt("Select:");
             UserAction action = actions[select];
             run = action.execute(input, tracker);
-            /*if (select == 0) {
-                StartUI.createItem(input, tracker);
-            } else if (select == 1) {
-                StartUI.showAllItems(input, tracker);
-            } else if (select == 2) {
-                StartUI.editItem(input, tracker);
-            } else if (select == 3) {
-                StartUI.deleteItem(input, tracker);
-            } else if (select == 4) {
-                StartUI.findById(input, tracker);
-            } else if (select == 5) {
-                StartUI.findByName(input, tracker);
-            } else if (select == 6) {
-                run = false;
-            }*/
         }
     }
 
