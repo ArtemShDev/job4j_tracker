@@ -126,12 +126,12 @@ public class StartUITest {
     @Test
     public void whenFindByName() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0", "New Item", "1"}
-        );
         Tracker tracker = new Tracker();
         Item item = new Item("New Item");
         tracker.add(item);
+        Input in = new StubInput(
+                new String[] {"0", item.getName(), "1"}
+        );
         UserAction[] actions = {
                 new FindByNameAction(out),
                 new ExitAction()
