@@ -36,11 +36,11 @@ public class ValidateInputTest {
         Input in = new StubInput(inArray);
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
+        int selectedThree = input.askInt("Enter menu:");
+        int selectedFive = input.askInt("Enter menu:");
         assertThat(selected, is(1));
-        selected = input.askInt("Enter menu:");
-        assertThat(selected, is(3));
-        selected = input.askInt("Enter menu:");
-        assertThat(selected, is(5));
+        assertThat(selectedThree, is(3));
+        assertThat(selectedFive, is(5));
     }
 
     @Test
