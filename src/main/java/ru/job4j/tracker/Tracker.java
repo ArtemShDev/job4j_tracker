@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
@@ -30,7 +29,7 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return new ArrayList<>(items);
     }
 
     public boolean replace(int id, Item item) {
