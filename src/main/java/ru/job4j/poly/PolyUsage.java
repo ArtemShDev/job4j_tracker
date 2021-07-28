@@ -8,7 +8,8 @@ public class PolyUsage {
         Vehicle busSecond = new BusInt();
         Vehicle trainSecond = new Train();
         Vehicle plainSecond = new Plain();
-        Vehicle[] vehicles = new Vehicle[]{busFirst, trainFirst, plainFirst, trainSecond, busSecond, plainSecond};
+        Vehicle[] vehicles = new Vehicle[]{busFirst, trainFirst, plainFirst, trainSecond,
+                busSecond, plainSecond};
         for (Vehicle a : vehicles) {
             a.move();
             System.out.println(a.countOfSeats());

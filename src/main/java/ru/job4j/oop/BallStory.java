@@ -11,6 +11,6 @@ public class BallStory {
         ball.roll();
         wolf.tryEat(ball);
         ball.roll();
-        fox.Eat(ball);
+        fox.eat(ball);
     }
 }

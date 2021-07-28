@@ -4,7 +4,8 @@ public class Fox {
     public void tryEat(Ball ball) {
 
     }
-    public void Eat(Ball ball) {
+
+    public void eat(Ball ball) {
 
     }
 }

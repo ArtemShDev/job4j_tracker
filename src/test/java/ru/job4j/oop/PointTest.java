@@ -14,6 +14,7 @@ public class PointTest {
         double expected = 1.41;
         Assert.assertEquals(expected, out, 0.01);
     }
+
     @Test
     public void when10to20then1() {
         Point a = new Point(1, 0);
@@ -22,6 +23,7 @@ public class PointTest {
         double expected = 1.0;
         Assert.assertEquals(expected, out, 0.01);
     }
+
     @Test
     public void when11to23then223() {
         Point a = new Point(1, 1);
@@ -30,6 +32,7 @@ public class PointTest {
         double expected = 2.23;
         Assert.assertEquals(expected, out, 0.01);
     }
+
     @Test
     public void when111to232then245() {
         Point a = new Point(1, 1, 1);
@@ -38,6 +41,7 @@ public class PointTest {
         double expected = 2.45;
         Assert.assertEquals(expected, out, 0.01);
     }
+
     @Test
     public void when111to222then173() {
         Point a = new Point(1, 1, 1);
@@ -46,6 +50,7 @@ public class PointTest {
         double expected = 1.73;
         Assert.assertEquals(expected, out, 0.01);
     }
+
     @Test
     public void when123to213then141() {
         Point a = new Point(1, 2, 3);
