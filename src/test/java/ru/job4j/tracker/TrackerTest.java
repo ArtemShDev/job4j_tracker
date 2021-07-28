@@ -1,10 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.collection.SortItemsByIdDown;
+import ru.job4j.collection.SortItemsByIdUp;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -86,37 +86,5 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
-    }
-
-    @Test
-    public void whenSortUpItemsById() {
-        Tracker tracker = new Tracker();
-        tracker.add(new Item("First"));
-        tracker.add(new Item("Third"));
-        tracker.add(new Item("Second"));
-        tracker.findById(2).setId(12);
-        List<Item> result = tracker.findAll();
-        result.sort(new SortItemsByIdUp());
-        List<Item> expected = new ArrayList<>();
-        expected.add(new Item("First", 1));
-        expected.add(new Item("Second", 3));
-        expected.add(new Item("Third", 12));
-        assertThat(result, is(expected));
-    }
-
-    @Test
-    public void whenSortDownItemsById() {
-        Tracker tracker = new Tracker();
-        tracker.add(new Item("First"));
-        tracker.add(new Item("Third"));
-        tracker.add(new Item("Second"));
-        tracker.findById(2).setId(12);
-        List<Item> result = tracker.findAll();
-        result.sort(new SortItemsByIdDown());
-        List<Item> expected = new ArrayList<>();
-        expected.add(new Item("Third", 12));
-        expected.add(new Item("Second", 3));
-        expected.add(new Item("First", 1));
-        assertThat(result, is(expected));
     }
 }
