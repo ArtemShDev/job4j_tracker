@@ -41,4 +41,20 @@ public class ProfilesTest {
         assertThat(rsl, is(expected));
     }
 
+    @Test
+    public void whenHas3RepeatProfilesThen2SortedAddresses() {
+        List<Profile> profiles = List.of(
+                new Profile(new Address("Msk", "Ryabinovaya str.", 25, 55)),
+                new Profile(new Address("Msk", "Ryabinovaya str.", 25, 55)),
+                new Profile(new Address("Msk", "Ryabinovaya str.", 25, 55)),
+                new Profile(new Address("Mozhaisk", "Zavodskaya str.", 1, 12))
+        );
+        Profiles pr = new Profiles();
+        List<Address> rsl = pr.collect(profiles);
+        List<Address> expected = new ArrayList<>();
+        expected.add(new Address("Mozhaisk", "Zavodskaya str.", 1, 12));
+        expected.add(new Address("Msk", "Ryabinovaya str.", 25, 55));
+        assertThat(rsl, is(expected));
+    }
+
 }
