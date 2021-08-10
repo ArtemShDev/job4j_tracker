@@ -16,10 +16,10 @@ public class SortItemsTest {
         in.add(new Item("Third", 3));
         in.add(new Item("Second", 2));
         in.sort(new SortItemsByIdUp());
-        List<Item> expected = new ArrayList<>();
-        expected.add(new Item("First", 1));
-        expected.add(new Item("Second", 2));
-        expected.add(new Item("Third", 3));
+        List<Item> expected = List.of(
+                new Item("First", 1),
+                new Item("Second", 2),
+                new Item("Third", 3));
         assertThat(in, is(expected));
     }
 
@@ -30,10 +30,10 @@ public class SortItemsTest {
         in.add(new Item("Third", 3));
         in.add(new Item("Second", 2));
         in.sort(new SortItemsByIdDown());
-        List<Item> expected = new ArrayList<>();
-        expected.add(new Item("Third", 3));
-        expected.add(new Item("Second", 2));
-        expected.add(new Item("First", 1));
+        List<Item> expected = List.of(
+                new Item("Third", 3),
+                new Item("Second", 2),
+                new Item("First", 1));
         assertThat(in, is(expected));
     }
 
