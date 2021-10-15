@@ -12,8 +12,7 @@ public class AnalyzeTest {
         double average = Analyze.averageScore(
                 List.of(
                         new Pupil("Ivanov", List.of(new Subject("Math", 100)))
-                ).stream()
-        );
+                ).stream());
         assertThat(average, is(100D));
     }
 
@@ -23,8 +22,7 @@ public class AnalyzeTest {
                 List.of(
                         new Pupil("Ivanov", List.of(new Subject("Math", 100))),
                         new Pupil("Petrov", List.of(new Subject("Math", 60)))
-                ).stream()
-        );
+                ).stream());
         assertThat(average, is(80D));
     }
 
@@ -32,10 +30,10 @@ public class AnalyzeTest {
     public void whenListOfPupilAverage() {
         List<Tuple> average = Analyze.averageScoreBySubject(
                 List.of(
-                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 100))),
-                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 80)))
-                ).stream()
-        );
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100),
+                                new Subject("Lang", 100))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 60),
+                                new Subject("Lang", 80)))).stream());
         assertThat(average, is(List.of(
                 new Tuple("Ivanov", 100D),
                 new Tuple("Petrov", 70D)
@@ -46,10 +44,10 @@ public class AnalyzeTest {
     public void whenListOfSubjectAverage() {
         List<Tuple> average = Analyze.averageScoreByPupil(
                 List.of(
-                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 100))),
-                        new Pupil("Petrov", List.of(new Subject("Math", 80), new Subject("Lang", 60)))
-                ).stream()
-        );
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100),
+                                new Subject("Lang", 100))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 80),
+                                new Subject("Lang", 60)))).stream());
         assertThat(average, is(List.of(
                 new Tuple("Math", 90D),
                 new Tuple("Lang", 80D)
@@ -60,10 +58,10 @@ public class AnalyzeTest {
     public void whenBestPupil() {
         Tuple best = Analyze.bestStudent(
                 List.of(
-                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 100))),
-                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
-                ).stream()
-        );
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100),
+                                new Subject("Lang", 100))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 60),
+                                new Subject("Lang", 60)))).stream());
         assertThat(best, is(new Tuple("Ivanov", 200D)));
     }
 
@@ -71,10 +69,10 @@ public class AnalyzeTest {
     public void whenBestSubject() {
         Tuple best = Analyze.bestSubject(
                 List.of(
-                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 40))),
-                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
-                ).stream()
-        );
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100),
+                                new Subject("Lang", 40))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 60),
+                                new Subject("Lang", 60)))).stream());
         assertThat(best, is(new Tuple("Math", 160D)));
     }
 }

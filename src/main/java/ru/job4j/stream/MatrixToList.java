@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MatrixToList {
-    public List<Integer> ConvertMatrixToList(Integer[][] matrix) {
+    public List<Integer> convertMatrixToList(Integer[][] matrix) {
         return Stream.of(matrix)
                 .flatMap(Stream::of)
                 .collect(Collectors.toList());

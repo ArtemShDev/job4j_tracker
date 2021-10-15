@@ -3,6 +3,7 @@ package ru.job4j.stream;
 import java.util.Date;
 
 public class Apartment {
+
     private int countOfPersons;
     private String nameOfBooked;
     private int numberOfRooms;
@@ -23,14 +24,14 @@ public class Apartment {
 
     @Override
     public String toString() {
-        return "Apartment{" +
-                "countOfPersons=" + countOfPersons +
-                ", nameOfBooked='" + nameOfBooked + '\'' +
-                ", numberOfRooms=" + numberOfRooms +
-                ", daysForRent=" + daysForRent +
-                ", sum=" + sum +
-                ", checkinDate=" + checkinDate +
-                '}';
+        return "Apartment{"
+                + "countOfPersons=" + countOfPersons
+                + ", nameOfBooked='" + nameOfBooked + '\''
+                + ", numberOfRooms=" + numberOfRooms
+                + ", daysForRent=" + daysForRent
+                + ", sum=" + sum
+                + ", checkinDate=" + checkinDate
+                + '}';
     }
 
     static class Builder {

@@ -19,7 +19,7 @@ public class MatrixToListTest {
                             {18, 22, 25, 78}
         };
         MatrixToList ml = new MatrixToList();
-        List<Integer> rsl = ml.ConvertMatrixToList(source);
+        List<Integer> rsl = ml.convertMatrixToList(source);
         List<Integer> expected = List.of(1, 5, 8, 8, 12, 15, 18, 22, 25, 78);
         assertThat(rsl, is(expected));
     }

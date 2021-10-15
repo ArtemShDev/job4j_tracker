@@ -1,6 +1,7 @@
 package ru.job4j.lambda;
 
 public class Attachment {
+
     private String name;
     private int size;
 
@@ -19,9 +20,9 @@ public class Attachment {
 
     @Override
     public String toString() {
-        return "{" +
-                "name='" + name + '\'' +
-                ", size=" + size +
-                '}';
+        return "{"
+                + "name='" + name + '\''
+                + ", size=" + size
+                + '}';
     }
 }
