@@ -34,7 +34,8 @@ public class SqlTracker implements Store {
 
     @Override
     public void init() {
-        try (InputStream in = SqlTracker.class.getClassLoader().getResourceAsStream("app.properties")) {
+        try (InputStream in = SqlTracker.class.getClassLoader()
+                .getResourceAsStream("app.properties")) {
             Properties config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
@@ -44,8 +45,8 @@ public class SqlTracker implements Store {
                     config.getProperty("password")
             );
             try (PreparedStatement ps = cn.
-                    prepareStatement("create table if not exists items(id serial primary key," +
-                            " name varchar(255), created timestamp)")) {
+                    prepareStatement("create table if not exists items(id serial primary key,"
+                            + " name varchar(255), created timestamp)")) {
                 ps.execute();
             }
         } catch (Exception e) {
