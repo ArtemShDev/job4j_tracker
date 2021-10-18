@@ -15,10 +15,10 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker memTracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, memTracker, actions);
         assertThat(out.toString(), is(
                 "Menu:" + System.lineSeparator()
                         + "0. Exit" + System.lineSeparator()
@@ -31,13 +31,13 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", "1"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("New Item");
-        tracker.add(item);
+        memTracker.add(item);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ShowAllAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, memTracker, actions);
         assertThat(out.toString(), is(
                 "Menu:" + System.lineSeparator()
                         + "0. Show all items" + System.lineSeparator()
@@ -53,16 +53,16 @@ public class StartUITest {
     @Test
     public void whenFindByID() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("New Item");
-        tracker.add(item);
+        memTracker.add(item);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByIdAction(out));
         actions.add(new ExitAction());
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(item.getId()), "1"}
         );
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, memTracker, actions);
         assertThat(out.toString(), is(
                 "Menu:" + System.lineSeparator()
                         + "0. Find item by id" + System.lineSeparator()
@@ -78,16 +78,16 @@ public class StartUITest {
     @Test
     public void whenFindByName() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker memTracker = new MemTracker();
         Item item = new Item("New Item");
-        tracker.add(item);
+        memTracker.add(item);
         Input in = new StubInput(
                 new String[]{"0", item.getName(), "1"}
         );
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindByNameAction(out));
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, memTracker, actions);
         assertThat(out.toString(), is(
                 "Menu:" + System.lineSeparator()
                         + "0. Find items by name" + System.lineSeparator()
@@ -106,10 +106,10 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"8", "0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker memTracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
-        new StartUI(out).init(in, tracker, actions);
+        new StartUI(out).init(in, memTracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu:" + ln
