@@ -17,16 +17,6 @@ public class SqlTracker implements Store {
         this.cn = connection;
     }
 
-    private void createTabIfNotExist() {
-        try (PreparedStatement ps = cn.
-                prepareStatement("create table if not exists items(id serial primary key,"
-                        + " name varchar(255), created timestamp)")) {
-            ps.execute();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
     @Override
     public void init() {
         try (InputStream in = SqlTracker.class.getClassLoader()
@@ -53,7 +43,6 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) {
-        createTabIfNotExist();
         try (PreparedStatement ps = cn.
                 prepareStatement("insert into items(name, created)"
                         + " values (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
