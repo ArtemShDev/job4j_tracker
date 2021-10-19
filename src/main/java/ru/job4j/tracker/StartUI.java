@@ -34,7 +34,8 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        MemTracker memTracker = new MemTracker();
+        Store sqlTracker = new SqlTracker();
+        sqlTracker.init();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(output));
         actions.add(new ShowAllAction(output));
@@ -43,7 +44,7 @@ public class StartUI {
         actions.add(new FindByIdAction(output));
         actions.add(new FindByNameAction(output));
         actions.add(new ExitAction());
-        new StartUI(output).init(input, memTracker, actions);
+        new StartUI(output).init(input, sqlTracker, actions);
     }
 
 }

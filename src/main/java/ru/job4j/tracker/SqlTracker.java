@@ -10,25 +10,13 @@ public class SqlTracker implements Store {
 
     private Connection cn;
 
-    public static void main(String[] args) {
-        Output output = new ConsoleOutput();
-        Input input = new ValidateInput(
-                output, new ConsoleInput()
-        );
-        try (Store tracker = new SqlTracker()) {
-            tracker.init();
-            List<UserAction> actions = List.of(
-                    new CreateAction(output),
-                    new EditAction(output),
-                    new DeleteAction(output),
-                    new ShowAllAction(output),
-                    new FindByIdAction(output),
-                    new FindByNameAction(output),
-                    new ExitAction()
-            );
-            new StartUI(output).init(input, tracker, actions);
-        } catch (Exception e) {
-            e.printStackTrace();
+    private void createTabIfNotExist() {
+        try (PreparedStatement ps = cn.
+                prepareStatement("create table if not exists items(id serial primary key,"
+                        + " name varchar(255), created timestamp)")) {
+            ps.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
@@ -44,11 +32,6 @@ public class SqlTracker implements Store {
                     config.getProperty("username"),
                     config.getProperty("password")
             );
-            try (PreparedStatement ps = cn.
-                    prepareStatement("create table if not exists items(id serial primary key,"
-                            + " name varchar(255), created timestamp)")) {
-                ps.execute();
-            }
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
@@ -63,6 +46,7 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) {
+        createTabIfNotExist();
         try (PreparedStatement ps = cn.
                 prepareStatement("insert into items(name, created)"
                         + " values (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
