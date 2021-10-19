@@ -10,6 +10,13 @@ public class SqlTracker implements Store {
 
     private Connection cn;
 
+    public SqlTracker() {
+    }
+
+    public SqlTracker(Connection connection) {
+        this.cn = connection;
+    }
+
     private void createTabIfNotExist() {
         try (PreparedStatement ps = cn.
                 prepareStatement("create table if not exists items(id serial primary key,"
