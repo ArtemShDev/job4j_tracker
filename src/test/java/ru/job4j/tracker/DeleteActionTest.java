@@ -12,6 +12,7 @@ public class DeleteActionTest {
 
     @Test
     public void executeDone() {
+
         Output out = new StubOutput();
         SqlTracker tracker = new SqlTracker();
         tracker.init();
@@ -32,6 +33,7 @@ public class DeleteActionTest {
 
     @Test
     public void executeFalse() {
+
         Output out = new StubOutput();
         SqlTracker tracker = new SqlTracker();
         tracker.init();
