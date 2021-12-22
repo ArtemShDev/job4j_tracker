@@ -20,7 +20,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-//    private LocalDateTime created = LocalDateTime.now();
     private String description;
     private Timestamp created;
 
@@ -42,16 +41,6 @@ public class Item {
         this.description = description;
         this.created = created;
     }
-
-    //    public Item(String name, int id, LocalDateTime created) {
-//        this.name = name;
-//        this.id = id;
-//        this.created = created;
-//    }
-
-//    public LocalDateTime getDateTime() {
-//        return created;
-//    }
 
     public int getId() {
         return id;
