@@ -12,7 +12,6 @@ public class FindByNameActionTest {
 
     @Test
     public void executeDone() {
-
         Output out = new StubOutput();
         SqlTracker tracker = new SqlTracker();
         tracker.init();
@@ -32,13 +31,13 @@ public class FindByNameActionTest {
 
     @Test
     public void executeFalse() {
-
         Output out = new StubOutput();
         SqlTracker tracker = new SqlTracker();
         tracker.init();
         tracker.add(new Item("Item for find"));
         FindByNameAction find = new FindByNameAction(out);
         Input input = mock(Input.class);
+        when(input.askStr(any(String.class))).thenReturn("null");
         find.execute(input, tracker);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Find items by name ===="
