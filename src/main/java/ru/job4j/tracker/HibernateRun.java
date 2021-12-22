@@ -10,17 +10,18 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class HibernateRun {
+
     public static void main(String[] args) {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
         try {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Item item = create(new Item("Learn Hibernate"), sf);
-            Item item2 = create(new Item("Learn Hibernate test1", "Test desc1",
+            Item item2 = create(new Item("Learn Hibernate test5", "Test desc1",
                     new Timestamp(1459510232000L)), sf);
-            Item item3 = create(new Item("Learn Hibernate test2", "Test desc2",
+            Item item3 = create(new Item("Learn Hibernate test6", "Test desc2",
                     new Timestamp(1459510232000L)), sf);
-            Item item4 = create(new Item("Learn Hibernate test2", "Test desc2",
+            Item item4 = create(new Item("Learn Hibernate test7", "Test desc2",
                     null), sf);
             System.out.println(item);
             item.setName("Learn Hibernate 5.");
