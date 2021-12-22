@@ -12,9 +12,8 @@ public class DeleteActionTest {
 
     @Test
     public void executeDone() {
-
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         for (Item item : tracker.findAll()) {
             tracker.delete(item.getId());
@@ -34,7 +33,7 @@ public class DeleteActionTest {
     @Test
     public void executeFalse() {
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         tracker.add(new Item("New item for delete"));
         DeleteAction del = new DeleteAction(out);

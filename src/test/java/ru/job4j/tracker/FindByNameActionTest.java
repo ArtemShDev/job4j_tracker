@@ -13,7 +13,7 @@ public class FindByNameActionTest {
     @Test
     public void executeDone() {
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         for (Item item : tracker.findAll()) {
             tracker.delete(item.getId());
@@ -32,7 +32,7 @@ public class FindByNameActionTest {
     @Test
     public void executeFalse() {
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         tracker.add(new Item("Item for find"));
         FindByNameAction find = new FindByNameAction(out);

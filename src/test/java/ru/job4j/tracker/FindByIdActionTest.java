@@ -12,9 +12,8 @@ public class FindByIdActionTest {
 
     @Test
     public void executeDone() {
-
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         Item item = new Item("New item for find by ID");
         tracker.add(item);
@@ -29,9 +28,8 @@ public class FindByIdActionTest {
 
     @Test
     public void executeFalse() {
-
         Output out = new StubOutput();
-        SqlTracker tracker = new SqlTracker();
+        MemTracker tracker = new MemTracker();
         tracker.init();
         FindByIdAction find = new FindByIdAction(out);
         Input input = mock(Input.class);
